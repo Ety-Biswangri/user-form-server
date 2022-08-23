@@ -19,6 +19,13 @@ async function run() {
 
         const usersCollection = client.db("user-form").collection("users");
 
+        app.get('/userinfo', async (req, res) => {
+            const users = await usersCollection.find().toArray();
+            console.log(users);
+
+            res.send(users);
+        })
+
         app.post('/userinfo', async (req, res) => {
             const newUser = req.body;
             console.log(newUser);
