@@ -5,18 +5,19 @@ require('dotenv').config();
 const app = express();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
-const corsConfig = {
-    origin: '*',
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE']
-}
-app.use(cors(corsConfig))
-app.options("*", cors(corsConfig))
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*")
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,authorization")
-    next()
-})
+app.use(cors());
+module.exports = function (req, res, next) {
+    // CORS headers
+    res.header("Access-Control-Allow-Origin", "https://secure-shore-18409.herokuapp.com/");
+    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-type,Accept,X-Custom-Header");
+
+    if (req.method === "OPTIONS") {
+        return res.status(200).end();
+    }
+
+    return next();
+};
 app.use(express.json());
 
 
