@@ -5,18 +5,13 @@ require('dotenv').config();
 const app = express();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
-module.exports = function (req, res, next) {
-    // CORS headers
-    res.header("Access-Control-Allow-Origin", "https://user-form-application.netlify.app/");
-    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Content-type,Accept,X-Custom-Header");
+const corsOptions = {
+    origin: '*',
+    credentials: true,            //access-control-allow-credentials:true
+    optionSuccessStatus: 200,
+}
 
-    if (req.method === "OPTIONS") {
-        return res.status(200).end();
-    }
-
-    return next();
-};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 
