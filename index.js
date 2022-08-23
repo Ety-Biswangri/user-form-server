@@ -8,7 +8,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 app.use(cors());
 module.exports = function (req, res, next) {
     // CORS headers
-    res.header("Access-Control-Allow-Origin", "https://secure-shore-18409.herokuapp.com/");
+    res.header("Access-Control-Allow-Origin", "https://user-form-application.netlify.app/");
     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-type,Accept,X-Custom-Header");
 
