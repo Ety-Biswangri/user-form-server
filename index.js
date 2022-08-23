@@ -5,7 +5,11 @@ require('dotenv').config();
 const app = express();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
-app.use(cors());
+const corsConfig = {
+    origin: 'https://user-form-application.netlify.app/',
+    credentials: true,
+}
+app.use(cors(corsConfig));
 app.use(express.json());
 
 
