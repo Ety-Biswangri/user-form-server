@@ -5,7 +5,7 @@ require('dotenv').config();
 const app = express();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
-app.use(cors({ origin: 'https://user-form-application.netlify.app/' }));
+app.use(cors({ origin: 'https://secure-shore-18409.herokuapp.com/' }));
 app.use(express.json());
 
 
