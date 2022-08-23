@@ -5,11 +5,7 @@ require('dotenv').config();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const app = express();
 
-app.use(cors({
-    origin: true,
-    optionsSuccessStatus: 200,
-    credentials: true
-}));
+app.use(cors({ origin: 'https://secure-shore-18409.herokuapp.com/' }));
 app.use(express.json());
 
 
