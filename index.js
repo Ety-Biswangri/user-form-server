@@ -5,7 +5,11 @@ require('dotenv').config();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: true,
+    optionsSuccessStatus: 200,
+    credentials: true
+}));
 app.use(express.json());
 
 
